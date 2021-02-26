@@ -10,7 +10,7 @@ class S2
 	}
 public class Student2 extends S2 
 {
-	// void run() Compile Time Error
+	 //void run() Compile Time Error
 	{
 		System.out.println("running child");
 	}

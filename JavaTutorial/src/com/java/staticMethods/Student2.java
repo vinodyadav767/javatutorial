@@ -1,7 +1,7 @@
 package com.java.staticMethods;
 
 public class Student2 {
-	static int cube(int a)
+	 static int cube(int a)
 	{
 		return a*a*a;
 		
