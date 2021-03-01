@@ -216,21 +216,23 @@ public class Student20 {
 			System.out.print(i + " ");
 		System.out.println();
 		System.out.println();
-		
-		//boolean remove(Object o)	It is used to remove the first occurrence of the specified element.
-		ArrayList<Double> dal=new ArrayList<Double>();
+
+		// boolean remove(Object o) It is used to remove the first occurrence of the
+		// specified element.
+		ArrayList<Double> dal = new ArrayList<Double>();
 		dal.add(10.5);
 		dal.add(15.5);
 		dal.add(25.40);
 		dal.add(40.60);
 		dal.add(100.0);
 		System.out.print("List of elements before remove: ");
-		for(Double d: dal)
-			System.out.print(d+" ");
-		double ritem=25.40;
+		for (Double d : dal)
+			System.out.print(d + " ");
+		double ritem = 25.40;
 		dal.remove(ritem);
 		System.out.println();
 		System.out.print("Lists of elements after remove: ");
-		for(double d: dal)
-			System.out.print(d+" ");
-	}}
+		for (double d : dal)
+			System.out.print(d + " ");
+	}
+}
