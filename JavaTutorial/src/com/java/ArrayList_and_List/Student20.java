@@ -3,7 +3,15 @@ package com.java.ArrayList_and_List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Spliterator;
+import java.util.function.UnaryOperator;
+
+
+//Need to do
+//void sort(Comparator<? super E> c)	It is used to sort the elements of the list on the basis of specified comparator.
+//void replaceAll(UnaryOperator<E> operator)	It is used to replace all the elements from the list with the specified element.
 
 //Exaple All of ArrayList and List
 public class Student20 {
@@ -17,8 +25,7 @@ public class Student20 {
 		System.out.println("Orinigal ArrayList: " + al);
 		System.out.println();
 
-		// void add(int index, E element) It is used to insert the specified element at
-		// the specified position in a list.
+		// void add(int index, E element) It is used to insert the specified element at the specified position in a list.
 		al.add(1, "Ansh");
 		System.out.println("ArrayList after adding Ansh at 1 Position: " + al);
 		System.out.println();
@@ -54,8 +61,7 @@ public class Student20 {
 		System.out.println("Now First ArrayList can store upto 500 elemenst");
 		System.out.println();
 
-		// E get(int index) It is used to fetch the element from the particular position
-		// of the list.
+		// E get(int index) It is used to fetch the element from the particular position of the list.
 		System.out.println(al.get(0) + " " + al.get(1));
 		System.out.println();
 
@@ -143,16 +149,14 @@ public class Student20 {
 		}
 		System.out.println();
 
-		// Object[] toArray() It is used to return an array containing all of the
-		// elements in this list in the correct order.
+		// Object[] toArray() It is used to return an array containing all of the elements in this list in the correct order.
 		Object[] obj = ali.toArray();
 		for (Object num : obj)
 			System.out.print(num + " ");
 		System.out.println();
 		System.out.println();
 
-		// <T> T[] toArray(T[] a) It is used to return an array containing all of the
-		// elements in this list in the correct order.
+		// <T> T[] toArray(T[] a) It is used to return an array containing all of th elements in this list in the correct order.
 		ArrayList<Integer> arr = new ArrayList<Integer>();
 		arr.add(10);
 		arr.add(20);
@@ -177,8 +181,7 @@ public class Student20 {
 		System.out.println("ArrayList elements after clone: " + ar12);
 		System.out.println();
 
-		// boolean contains(Object o) It returns true if the list contains the specified
-		// element
+		// boolean contains(Object o) It returns true if the list contains the specified element
 		ArrayList<Integer> ai11 = new ArrayList<Integer>();
 		ai11.add(10);
 		ai11.add(20);
@@ -192,9 +195,7 @@ public class Student20 {
 		}
 		System.out.println();
 
-		// int indexOf(Object o) It is used to return the index in this list of the
-		// first occurrence of the specified element, or -1 if the List does not contain
-		// this element.
+		// int indexOf(Object o) It is used to return the index in this list of the first occurrence of the specified element, or -1 if the List does not contain this element.
 		System.out.print("The elements of List: ");
 		for (Integer i : ai11)
 			System.out.print(i + " ");
@@ -234,5 +235,187 @@ public class Student20 {
 		System.out.print("Lists of elements after remove: ");
 		for (double d : dal)
 			System.out.print(d + " ");
+		System.out.println();
+		System.out.println();
+		// boolean removeAll(Collection<?> c) It is used to remove all the elements from
+		// the list.
+		ArrayList<Integer> al22 = new ArrayList<Integer>();
+		al22.add(10);
+		al22.add(20);
+		al22.add(30);
+		al22.add(40);
+		al22.add(50);
+		System.out.print("First List of elements before removing all from second List: ");
+		for (Integer i : al22)
+			System.out.print(i + " ");
+		System.out.println();
+		ArrayList<Integer> al33 = new ArrayList<Integer>();
+		al33.add(10);
+		al33.add(20);
+		al33.add(50);
+		System.out.print("Second List of elements: ");
+		for (Integer i : al33)
+			System.out.print(i + " ");
+		System.out.println();
+		al22.removeAll(al33);
+		System.out.print("First List of elements after remove all from Second List: ");
+		for (Integer i : al22)
+			System.out.print(i + " ");
+		System.out.println();
+		System.out.print("Second List still same after removing from first List: ");
+		for (Integer i : al33)
+			System.out.print(i + " ");
+		System.out.println();
+		System.out.println();
+
+		// boolean removeIf(Predicate<? super E> filter) It is used to remove all the
+		// elements from the list that satisfies the given predicate.
+		ArrayList<Integer> al44 = new ArrayList<Integer>();
+		al44.add(10);
+		al44.add(20);
+		al44.add(30);
+		al44.add(40);
+		al44.add(50);
+		al44.add(80);
+		al44.add(90);
+		al44.add(100);
+		System.out.print("List of elements before removeIf: ");
+		for (Integer i : al44)
+			System.out.print(i + " ");
+		System.out.println();
+		al44.removeIf(a -> (a % 3 == 0));
+		System.out.print("List of elements after removeIf: ");
+		for (Integer i : al44)
+			System.out.print(i + " ");
+		al44.removeIf(a -> a % 4 == 0);
+		System.out.println();
+		System.out.print("List after anothe removeIf: ");
+		for (Integer i : al44)
+			System.out.print(i + " ");
+		System.out.println();
+		System.out.println();
+
+		// void retainAll(Collection<?> c) It is used to retain all the elements in the
+		// list that are present in the specified collection.
+		ArrayList<String> gb = new ArrayList<String>();
+		gb.add("Pen");
+		gb.add("Pencil");
+		gb.add("Cutter");
+		gb.add("Eraser");
+		System.out.print("List of gb elements before retainAll:");
+		for (String s : gb)
+			System.out.print(s + " ");
+		System.out.println();
+		ArrayList<String> bag = new ArrayList<String>();
+		bag.add("Book");
+		bag.add("Pen");
+		bag.add("Botale");
+		bag.add("Pencil");
+		System.out.print("list of Bag elements before retainAll: ");
+		for (String s : bag)
+			System.out.print(s + " ");
+		System.out.println();
+		bag.retainAll(gb);
+		System.out.print("List of gb elemenst after retainAll: ");
+		for (String s : gb)
+			System.out.print(s + " ");
+		System.out.println();
+		System.out.print("List of Bag elemenst after reatinAll: ");
+		for (String s : bag)
+			System.out.print(s + " ");
+		System.out.println();
+		System.out.println();
+
+		// E set(int index, E element) It is used to replace the specified element in
+		// the list, present at the specified position.
+		ArrayList<Integer> al55 = new ArrayList<Integer>();
+		al55.add(1);
+		al55.add(2);
+		al55.add(3);
+		al55.add(4);
+		al55.add(5);
+		System.out.print("List of elements before set an elemenst: ");
+		for (int i : al55)
+			System.out.print(i + " ");
+		System.out.println();
+		int a = al55.set(3, 10);
+		System.out.print("List of elements after set an elemenst: ");
+		for (int i : al55)
+			System.out.print(i + " ");
+		System.out.println();
+		System.out.print("Replaced elemenst is: " + a);
+		System.out.println();
+		System.out.println();
+		
+		//Spliterator<E> spliterator()	It is used to create spliterator over the elements in a list.
+		ArrayList<String> al66=new ArrayList<String>();
+		al66.add("vy@utb.cz");
+		al66.add("sy@obd.hu");
+		al66.add("sy@ies.com");
+		Spliterator<String> emails=al66.spliterator();
+		System.out.print("List of emails:--> ");
+		emails.forEachRemaining(n->System.out.print(n+" "));
+		System.out.println();
+		System.out.println();
+		
+		//List<E> subList(int fromIndex, int toIndex)It is used to fetch all the elements lies within the given range.
+			ArrayList<String> al77=new ArrayList<String>();
+			al77.add("A");
+			al77.add("B");
+			al77.add("C");
+			al77.add("D");
+			al77.add("E");
+			al77.add("F");
+			System.out.print("Elemenst of First List: ");
+			for(String s:al77)
+				System.out.print(s+" ");
+			System.out.println();
+			List<String> subList=al77.subList(1, 4);
+			System.out.print("Elements of subList: ");
+			for(String s: subList)
+				System.out.print(s+" ");
+			System.out.println();
+			System.out.println();
+			
+			//int size()	It is used to return the number of elements present in the list.
+			ArrayList<Integer> al88=new ArrayList<Integer>();
+			al88.add(1);
+			al88.add(2);
+			al88.add(3);
+			al88.add(4);
+			al88.add(5);
+			System.out.print("List before operation: ");
+			for(int i=0; i<al88.size();i++)
+				System.out.print(al88.get(i)+" ");
+			System.out.println();
+			int si=al88.size();
+			System.out.print("Size of list is: "+si);
+			System.out.println();
+			System.out.println();
+			
+			//void trimToSize()	It is used to trim the capacity of this ArrayList instance to be the list's current size.
+			
+			ArrayList<Integer> al99=new ArrayList<Integer>();
+			al99.add(1);
+			al99.add(2);
+			al99.add(3);
+			al99.add(4);
+			al99.add(5);
+			al99.add(6);
+			al99.add(7);
+			al99.add(8);
+			al99.add(9);
+			al99.add(10);
+			System.out.print("List of elements before trimToSize: ");
+			for(int i: al99)
+				System.out.print(i+" ");
+			System.out.println();
+			al99.trimToSize();
+			al99.add(11);
+			System.out.print("List of elements after trimToSize: ");
+			for(int i: al99)
+				System.out.print(i+" ");
+			System.out.println();
+			
 	}
 }
